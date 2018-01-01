@@ -5,4 +5,5 @@ Inkscape Plugin to offset paths to plot polygons on a pen plotter in a nice (fil
 - Use Flatten Bezier plugin in advance of this plugin (it can't deal with bezier curves)
 - put .inx and .py to ~/.config/inkscape/extensions/ folder
 
-![demo screenshot](https://raw.githubusercontent.com/TimeTravel-0/ofsplot/blob/master/ofsplot.png)
+![demo screenshot](https://github.com/TimeTravel-0/ofsplot/raw/master/ofsplot.png)
+
