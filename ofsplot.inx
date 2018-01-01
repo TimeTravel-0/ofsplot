@@ -1,0 +1,23 @@
+<inkscape-extension>
+  <_name>Offset Plot</_name>
+  <id>org.ofsplot</id>
+  <dependency type="executable" location="extensions">ofsplot.py</dependency>
+  <param name="count" type="int" min="0" max="100000" _gui-text="Number of offset paths:">10</param>
+  <param name="ofs" type="float" min="-1000" max="+1000"  _gui-text="Offset between two paths:">0.8</param>
+  <param name="init_ofs" type="float" min="-1000" max="+1000"  _gui-text="Initial offset from original path:">0.8</param>
+  <param name="copy_org" type="boolean" _gui-text="Copy original path (=keep it)">0</param>
+  <param name="ofs_incr" type="float" min="-1000" max="+1000"  _gui-text="Offset increase per iteration:">0.8</param>
+  <_param name="settingsHelp" type="description">Python library pyclipper needs to be installed. Use Flatten Bezier plugin in advance of this plugin.</_param>
+    
+
+  <effect>
+    <object-type>all</object-type>
+    <effects-menu>
+       <submenu _name="Modify Path"/>
+    </effects-menu>
+  </effect>
+  <script>
+    <command reldir="extensions" interpreter="python">ofsplot.py</command>
+  </script>
+</inkscape-extension>
+
