@@ -1,4 +1,4 @@
-Feedback from Evil Mad Scientiest (@EMSL) at Twitter:
+Feedback from Evil Mad Scientiest (@EMSL) at Twitter / https://twitter.com/EMSL/status/948619584629653504 :
 
 (1) Look inside flatten.py. You should be able to add this capability, making it invisible to the user.
 Todo: Integrate/call flatten.py (flatten bezier curves) so user does not have to do this manually (and add checkbox in UI to enable this (on by default)). Check if it is posisble to calculate a good value for the flatness parameter so number of line segments vs. smoothness is a good tradeoff.
@@ -16,7 +16,7 @@ Complexity: Low ; Effort: Low ; Benefit: High
 
 Correct. But this might be better put into a seperate plugin to optimize path order for plotting.
 For a list of all the line segments (in one object = one color/pen width), do a 2d matrix of start/end point distances
-Chain those together so start/end point distances are (relatively) minimal. Does not be a perfect solution, a good solution speeds up plotting already noticably.
+Chain those together so start/end point distances are (relatively) minimal. Does not need to be a perfect solution, a good solution speeds up plotting already noticably.
 Expected result: Filling will happen in some kind of "spiral", per nested shell.
 Complexity: Med ; Effort: High ; Benefit: High
 
