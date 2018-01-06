@@ -1,0 +1,44 @@
+Feedback from Evil Mad Scientiest (@EMSL) at Twitter:
+
+(1) Look inside flatten.py. You should be able to add this capability, making it invisible to the user.
+Todo: Integrate/call flatten.py (flatten bezier curves) so user does not have to do this manually (and add checkbox in UI to enable this (on by default)). Check if it is posisble to calculate a good value for the flatness parameter so number of line segments vs. smoothness is a good tradeoff.
+Complexity: Low ; Effort: Med ; Benefit: High
+
+
+
+(2) Add option for automatically filling with as many shells as required?
+currently can be achieved by a really high number of shells (it will stop if calculated shell is "empty". 
+Todo: If value is set to "-1", it keeps on iterating until two shells are identical. Benefit (vs. checking for empty): stops for empty AND stuck situations.
+Complexity: Low ; Effort: Low ; Benefit: High
+
+
+(3) If you could splice the subpaths where they start/end, you could make it so that no pen lifts are required between nested subpaths. This makes plotting _vastly_ faster.
+
+Correct. But this might be better put into a seperate plugin to optimize path order for plotting.
+For a list of all the line segments (in one object = one color/pen width), do a 2d matrix of start/end point distances
+Chain those together so start/end point distances are (relatively) minimal. Does not be a perfect solution, a good solution speeds up plotting already noticably.
+Expected result: Filling will happen in some kind of "spiral", per nested shell.
+Complexity: Med ; Effort: High ; Benefit: High
+
+
+
+(4) Strange behavior on complex geometry; extra dots.
+Complex geometry (e.g. 4 dots connected to build a "8") leads to "outside" once to be on the left and once to be on the right side of the line.
+Possible Solution: Split paths that contain crossing lines in two paths at the crossing point in advance of doing the shells
+Complexity: Med ; Effort: High ; Benefit: Low (only common in hand-drawn vector graphics)
+
+
+(5) Thick lines show closely overlapped output paths.
+This can be compensated by adjusting the offset parameter - but needs to be done manually.
+It makes sense to make the offset a multiple of the line thickness. This way the representation in Inkscape will match the plotted result (if pen width is set correctly, of course...)
+Todo: Make offset a multiple of the line width, not just one number for all. Add option to enable/disable this in GUI.
+Complexity: Low ; Effort: Low ; Benefit: High
+
+
+
+
+Other feedback:
+
+
+Todo: Automatically remove small geometry (too small to plot). This removes dots observed. Prevents the pen painting the same spot on the paper over and over again soaking it in paint.
+Complexity: Med ; Effort: Med ; Benefit: Med
